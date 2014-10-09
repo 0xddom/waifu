@@ -1,6 +1,6 @@
-# Cuevana Storm
+# Waifu client
 
-Cuevana Storm desktop app based in peerflix module, packaged with node-webkit
+Waifu desktop app based in peerflix module, packaged with node-webkit
 
 #### Install
 
