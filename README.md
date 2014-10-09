@@ -29,3 +29,5 @@ When the app is launched with `npm start`, it runs in `--debug` mode. Press `F11
 #### Comments
 
 Inspired by Popcorn Time's use of peerflix module. Expanded on their idea.
+
+and cloned from cuevana!
