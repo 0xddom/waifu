@@ -132,6 +132,8 @@ gulp.task('build', ['compile'], function(cb) {
 		version: '0.10.5',
 		cacheDir: './build/cache',
 		platforms: platforms,
+    appName: 'Waifu',
+    appVersion: '0.1',
 		macIcns: './app/assets/icons/mac.icns',
 		winIco: './app/assets/icons/windows.ico',
 		checkVersions: false
@@ -165,6 +167,11 @@ gulp.task('build', ['compile'], function(cb) {
 
 		// Handle ffmpeg for Linux32
 		if (platforms.indexOf('linux32') > -1) {
+
+      if (process.platform.indexOf('linux') > -1) {
+        gulp.src('./build/Waifu/linux32/Waifu')
+        .pipe(exec("sed -i 's/udev\.so\.0/udev.so.1/g' '<%= file.path %>'"));
+      }
 			gulp.src('./deps/ffmpegsumo/linux32/*')
 			.pipe(gulp.dest(
 				'./build/Waifu/linux32'
@@ -173,6 +180,11 @@ gulp.task('build', ['compile'], function(cb) {
 
 		// Handle ffmpeg for Linux64
 		if (platforms.indexOf('linux64') > -1) {
+      if (process.platform.indexOf('linux') > -1) {
+        gulp.src('./build/Waifu/linux64/Waifu')
+        .pipe(exec("sed -i 's/udev\.so\.0/udev.so.1/g' '<%= file.path %>'"));
+      }
+
 			gulp.src('./deps/ffmpegsumo/linux64/*')
 			.pipe(gulp.dest(
 				'./build/Waifu/linux64'
