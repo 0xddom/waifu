@@ -1,7 +1,9 @@
 var gulp	= require('gulp'),
 	less	= require('gulp-less'),
 	concat	= require('gulp-concat'),
+   exec = require('gulp-exec'),
   inject	= require('gulp-inject');
+
   //  clean	= require('gulp-rimraf');
 
 var NodeWebkitBuilder = require('node-webkit-builder');
