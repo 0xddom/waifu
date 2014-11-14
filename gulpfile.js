@@ -131,13 +131,14 @@ gulp.task('build', ['compile'], function(cb) {
 	// Initialize NodeWebkitBuilder
 	var nw = new NodeWebkitBuilder({
 		files: [ './package.json', './app/**/*' ].concat(modules),
-		version: '0.10.5',
+		version: '0.9.2',
 		cacheDir: './build/cache',
 		platforms: platforms,
     appName: 'Waifu',
     appVersion: '0.1',
 		macIcns: './app/assets/icons/mac.icns',
 		winIco: './app/assets/icons/windows.ico',
+    downloadUrl: 'http://cdn.popcorntime.io/nw/',
 		checkVersions: false
 	})
 
@@ -152,20 +153,20 @@ gulp.task('build', ['compile'], function(cb) {
 		if (!!err) return console.error(err)
 
 		// Handle ffmpeg for Windows
-		if (platforms.indexOf('win') > -1) {
-			gulp.src('./deps/ffmpegsumo/win/*')
-			.pipe(gulp.dest(
-				'./build/Waifu/win'
-			))
-		}
+		//if (platforms.indexOf('win') > -1) {
+			//gulp.src('./deps/ffmpegsumo/win/*')
+			//.pipe(gulp.dest(
+				//'./build/Waifu/win'
+			//))
+		//}
 
 		// Handle ffmpeg for Mac
-		if (platforms.indexOf('osx') > -1) {
-			gulp.src('./deps/ffmpegsumo/osx/*')
-			.pipe(gulp.dest(
-				'./build/Waifu/osx/node-webkit.app/Contents/Frameworks/node-webkit\ Framework.framework/Libraries'
-			))
-		}
+		//if (platforms.indexOf('osx') > -1) {
+			//gulp.src('./deps/ffmpegsumo/osx/*')
+			//.pipe(gulp.dest(
+				//'./build/Waifu/osx/node-webkit.app/Contents/Frameworks/node-webkit\ Framework.framework/Libraries'
+			//))
+		//}
 
 		// Handle ffmpeg for Linux32
 		if (platforms.indexOf('linux32') > -1) {
@@ -174,10 +175,10 @@ gulp.task('build', ['compile'], function(cb) {
         gulp.src('./build/Waifu/linux32/Waifu')
         .pipe(exec("sed -i 's/udev\.so\.0/udev.so.1/g' '<%= file.path %>'"));
       }
-			gulp.src('./deps/ffmpegsumo/linux32/*')
-			.pipe(gulp.dest(
-				'./build/Waifu/linux32'
-			))
+			//gulp.src('./deps/ffmpegsumo/linux32/*')
+			//.pipe(gulp.dest(
+				//'./build/Waifu/linux32'
+			//))
 		}
 
 		// Handle ffmpeg for Linux64
@@ -187,10 +188,10 @@ gulp.task('build', ['compile'], function(cb) {
         .pipe(exec("sed -i 's/udev\.so\.0/udev.so.1/g' '<%= file.path %>'"));
       }
 
-			gulp.src('./deps/ffmpegsumo/linux64/*')
-			.pipe(gulp.dest(
-				'./build/Waifu/linux64'
-			))
+			//gulp.src('./deps/ffmpegsumo/linux64/*')
+			//.pipe(gulp.dest(
+				//'./build/Waifu/linux64'
+			//))
 		}
 
 		cb(err);
