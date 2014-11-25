@@ -30,8 +30,12 @@ var isMaximized = false;
 var videoData = {};
 var languages = {
 	'ES': i18n.__('SPANISH'),
+	'LA': i18n.__('LATIN-SPANISH'),
 	'EN': i18n.__('ENGLISH'),
-	'PT': i18n.__('PORTUGUESE')
+	'PT': i18n.__('PORTUGUESE'),
+	'FR': i18n.__('FRENCH'),
+  'DE': i18n.__('Deutsch'),
+  'IT': i18n.__('ITALIAN')
 }
 var genres = [
 	{ key: '1', name: i18n.__('GENRE_DRAMA')},
